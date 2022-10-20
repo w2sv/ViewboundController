@@ -1,15 +1,18 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
 
 android {
+    def TARGET_SDK = 33
+
     namespace 'com.w2sv.viewboundcontroller'
-    compileSdk 33
+    compileSdk TARGET_SDK
 
     defaultConfig {
         minSdk 14
-        targetSdk 33
+        targetSdk TARGET_SDK
 
         versionCode 1
         versionName '0.0.1'
