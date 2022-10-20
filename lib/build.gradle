@@ -1,18 +1,15 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'maven-publish'
 }
 
 android {
-    def TARGET_SDK = 33
-
     namespace 'com.w2sv.viewboundcontroller'
-    compileSdk TARGET_SDK
+    compileSdk 33
 
     defaultConfig {
         minSdk 14
-        targetSdk TARGET_SDK
+        targetSdk 33
 
         versionCode 1
         versionName '0.0.1'
@@ -20,9 +17,10 @@ android {
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         consumerProguardFiles 'consumer-rules.pro'
     }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
