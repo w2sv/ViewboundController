@@ -1,18 +1,21 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
 
 android {
+    def TARGET_SDK = 33
+
     namespace 'com.w2sv.viewboundcontroller'
-    compileSdk 33
+    compileSdk TARGET_SDK
 
     defaultConfig {
         minSdk 14
-        targetSdk 33
+        targetSdk TARGET_SDK
 
-        versionCode 2
-        versionName '0.0.2'
+        versionCode 3
+        versionName '0.0.3'
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         consumerProguardFiles 'consumer-rules.pro'
@@ -33,6 +36,25 @@ android {
     }
     buildFeatures {
         viewBinding true
+    }
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+        }
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                groupId = 'com.github.w2sv'
+                artifactId = 'viewboundcontroller'
+                version = android.defaultConfig.versionName
+            }
+        }
     }
 }
 
