@@ -4,7 +4,6 @@ package bindings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -16,25 +15,17 @@ import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
 
-public final class ActivityTestBinding implements ViewBinding {
+public final class FragmentTestBinding implements ViewBinding {
   @NonNull
   private final RelativeLayout rootView;
 
   @NonNull
-  public final RelativeLayout dummy;
+  public final TextView appTitleTextView;
 
-  @NonNull
-  public final ImageView dummyIv;
-
-  @NonNull
-  public final TextView dummyTv;
-
-  private ActivityTestBinding(@NonNull RelativeLayout rootView, @NonNull RelativeLayout dummy,
-      @NonNull ImageView dummyIv, @NonNull TextView dummyTv) {
+  private FragmentTestBinding(@NonNull RelativeLayout rootView,
+                              @NonNull TextView appTitleTextView) {
     this.rootView = rootView;
-    this.dummy = dummy;
-    this.dummyIv = dummyIv;
-    this.dummyTv = dummyTv;
+    this.appTitleTextView = appTitleTextView;
   }
 
   @Override
@@ -44,14 +35,14 @@ public final class ActivityTestBinding implements ViewBinding {
   }
 
   @NonNull
-  public static ActivityTestBinding inflate(@NonNull LayoutInflater inflater) {
+  public static FragmentTestBinding inflate(@NonNull LayoutInflater inflater) {
     return inflate(inflater, null, false);
   }
 
   @NonNull
-  public static ActivityTestBinding inflate(@NonNull LayoutInflater inflater,
-      @Nullable ViewGroup parent, boolean attachToParent) {
-    View root = inflater.inflate(R.layout.activity_test, parent, false);
+  public static FragmentTestBinding inflate(@NonNull LayoutInflater inflater,
+                                            @Nullable ViewGroup parent, boolean attachToParent) {
+    View root = inflater.inflate(R.layout.fragment_test, parent, false);
     if (attachToParent) {
       parent.addView(root);
     }
@@ -59,26 +50,18 @@ public final class ActivityTestBinding implements ViewBinding {
   }
 
   @NonNull
-  public static ActivityTestBinding bind(@NonNull View rootView) {
+  public static FragmentTestBinding bind(@NonNull View rootView) {
     // The body of this method is generated in a way you would not otherwise write.
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      RelativeLayout dummy = (RelativeLayout) rootView;
-
-      id = R.id.dummy_iv;
-      ImageView dummyIv = ViewBindings.findChildViewById(rootView, id);
-      if (dummyIv == null) {
+      id = R.id.app_title_text_view;
+      TextView appTitleTextView = ViewBindings.findChildViewById(rootView, id);
+      if (appTitleTextView == null) {
         break missingId;
       }
 
-      id = R.id.dummy_tv;
-      TextView dummyTv = ViewBindings.findChildViewById(rootView, id);
-      if (dummyTv == null) {
-        break missingId;
-      }
-
-      return new ActivityTestBinding((RelativeLayout) rootView, dummy, dummyIv, dummyTv);
+      return new FragmentTestBinding((RelativeLayout) rootView, appTitleTextView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

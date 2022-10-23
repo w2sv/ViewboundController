@@ -6,13 +6,12 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.RegisterExtension
 
-class ExampleViewBoundActivity: ViewBoundActivity<ActivityTestBinding>(
-    ActivityTestBinding::class.java)
+class DummyViewBoundActivity: ViewBoundActivity<ActivityTestBinding>(ActivityTestBinding::class.java)
 
 internal class ViewBoundActivityTest{
     @JvmField
     @RegisterExtension
-    val scenarioExtension = ActivityScenarioExtension.launch<ExampleViewBoundActivity>()
+    val scenarioExtension = ActivityScenarioExtension.launch<DummyViewBoundActivity>()
 
     @Test
     fun bindingPropertiesAccessible(){
