@@ -10,7 +10,7 @@ env:
   ARCH: x86_64
   JAVA_VERSION: 8
   DEVICE: Nexus 6
-  SDK: 31
+  API_LEVEL: 31
 
 jobs:
   instrumentation-tests:
@@ -37,13 +37,13 @@ jobs:
           path: |
             ~/.android/avd/*
             ~/.android/adb*
-          key: avd-${{ matrix.api }}
+          key: avd-${{ env.API_LEVEL }}
 
       - name: create AVD and generate snapshot for caching
         if: steps.avd-cache.outputs.cache-hit != 'true'
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: ${{ matrix.api }}
+          api-level: ${{ env.API_LEVEL }}
           profile: ${{ env.DEVICE }}
           arch: ${{ env.ARCH }}
           force-avd-creation: false
@@ -54,7 +54,7 @@ jobs:
       - name: Run Instrumentation tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: ${{ matrix.api }}
+          api-level: ${{ env.API_LEVEL }}
           profile: ${{ matrix.DEVICE }}
           arch: ${{ env.ARCH }}
           force-avd-creation: false
