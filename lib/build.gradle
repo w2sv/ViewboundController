@@ -10,7 +10,7 @@ android {
     def TARGET_SDK = 33
 
     namespace 'com.w2sv.viewboundcontroller'
-    compileSdk TARGET_SDK
+    compileSdkVersion TARGET_SDK
 
     defaultConfig {
         minSdk 14
