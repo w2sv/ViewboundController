@@ -8,7 +8,7 @@ on: [push, pull_request]
 
 env:
   ARCH: x86_64
-  JAVA_VERSION: 8
+  JAVA_VERSION: 11
   DEVICE: Nexus 6
   API_LEVEL: 31
 
@@ -62,8 +62,8 @@ jobs:
           disable-animations: true
           script: ./gradlew connectedCheck
 
-  build-aars:
-    name: Build apk
+  assemble:
+    name: Assemble
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -73,5 +73,5 @@ jobs:
         with:
           java-version: ${{ env.JAVA_VERSION }}
 
-      - name: Build AARs
+      - name: Assemble
         run: ./gradlew assemble
