@@ -16,9 +16,9 @@ internal class ViewBoundActivityTest{
     @Test
     fun bindingPropertiesAccessible(){
         scenarioExtension.scenario.onActivity {
-            Assertions.assertEquals(-1, it.binding.root.id)
-            Assertions.assertEquals(2131230800, it.binding.dummyTv.id)
-            Assertions.assertEquals(2131230799, it.binding.dummyIv.id)
+            Assertions.assertEquals(2131230800, it.binding.root.id)
+            Assertions.assertEquals(2131230801, it.binding.dummyIv.id)
+            Assertions.assertEquals(2131230802, it.binding.dummyTv.id)
         }
     }
 }
