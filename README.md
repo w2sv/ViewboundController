@@ -1,10 +1,10 @@
 # __viewboundcontroller__
 
-Small convenience library for the boilerplate-free usage of ViewBindings in Activities and Fragments
-
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/w2sv/viewboundcontroller?include_prereleases)
 [![Build](https://github.com/w2sv/viewboundcontroller/actions/workflows/workflow.yaml/badge.svg)](https://github.com/w2sv/viewboundcontroller/actions/workflows/workflow.yaml)
 ![GitHub](https://img.shields.io/github/license/w2sv/viewboundcontroller)
+
+Small convenience library for the boilerplate-free usage of ViewBindings in Activities and Fragments
 
 ## Usage
 
