@@ -1,8 +1,9 @@
-# __viewboundcontroller__
+# ViewboundController
 
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/w2sv/viewboundcontroller?include_prereleases)
-[![Build](https://github.com/w2sv/viewboundcontroller/actions/workflows/workflow.yaml/badge.svg)](https://github.com/w2sv/viewboundcontroller/actions/workflows/workflow.yaml)
-![GitHub](https://img.shields.io/github/license/w2sv/viewboundcontroller)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/w2sv/ViewboundController?include_prereleases)
+[![](https://jitpack.io/v/w2sv/ViewboundController.svg)](https://jitpack.io/#w2sv/ViewboundController)
+[![Build](https://github.com/w2sv/Viewboundcontroller/actions/workflows/workflow.yaml/badge.svg)](https://github.com/w2sv/ViewboundController/actions/workflows/workflow.yaml)
+![GitHub](https://img.shields.io/github/license/w2sv/ViewboundController)
 
 Small convenience library for the boilerplate-free usage of ViewBindings in Activities and Fragments
 
@@ -12,27 +13,31 @@ Simply pass the respective `ViewBinding` subclass both as type and constructor a
 
 The retrieval of the respectively required `inflate` method is carried out by means of reflection. 
 
-### Activity
-```kotlin
-class YourActivity: ViewBoundActivity<YourActivityBinding>(YourActivityBinding::class.java)
-```
-`YourActivityBinding` will be inflated in the `onCreate` lifecycle method and is thereupon accessible via the `binding` property
+- Activity
+  ```kotlin
+  class YourActivity: ViewBoundActivity<YourActivityBinding>(YourActivityBinding::class.java)
+  ```
+  `YourActivityBinding` will be inflated in the `onCreate` lifecycle method and is thereupon accessible via the `binding` property
 
-### Fragment
+- Fragment
 
-```kotlin
-class YourFragment: ViewBoundFragment<YourFragmentBinding>(YourFragmentBinding::class.java)
-```
-Same goes for Fragments, only that here the binding inflation happens in `onCreateView`. Also, the binding will be nulled in `onDestroyedView` to prevent memory leaks.
+  ```kotlin
+  class YourFragment: ViewBoundFragment<YourFragmentBinding>(YourFragmentBinding::class.java)
+  ```
+  Same goes for Fragments, only that here the binding inflation happens in `onCreateView`. Also, the binding will be nulled in `onDestroyedView` to prevent memory leaks.
 
-## Install
+## Installation with gradle & jitpack
 
 ```gradle
 implementation 'com.github.w2sv:viewboundcontroller:x.y.z'
 ```
 
-or get the latest snapshot from the master branch:
+or get the latest snapshot from a certain branch:
 
 ```gradle
-implementation 'com.github.w2sv:viewboundcontroller:master-SNAPSHOT'
+implementation 'com.github.w2sv:viewboundcontroller:<BRANCH-NAME>-SNAPSHOT'
 ```
+
+## License
+
+[GPL-3.0](https://github.com/w2sv/ViewboundController/blob/main/LICENSE)
