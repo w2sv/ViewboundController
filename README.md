@@ -5,7 +5,7 @@
 [![Build](https://github.com/w2sv/Viewboundcontroller/actions/workflows/workflow.yaml/badge.svg)](https://github.com/w2sv/ViewboundController/actions/workflows/workflow.yaml)
 ![GitHub](https://img.shields.io/github/license/w2sv/ViewboundController)
 
-Small convenience library for the boilerplate-free usage of ViewBindings in Activities and Fragments
+Small Android library for the usage of ViewBindings in your Activities and Fragments without the usual boilerplate code
 
 ## Usage
 
