@@ -11,8 +11,10 @@ android {
 
     defaultConfig {
         minSdk 14
+        versionCode 1
+        versionName '0.0.1'
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         testInstrumentationRunnerArguments runnerBuilder: 'de.mannodermaus.junit5.AndroidJUnit5Builder'
 
         consumerProguardFiles 'consumer-rules.pro'
@@ -34,6 +36,12 @@ android {
     buildFeatures {
         viewBinding true
         buildConfig false
+    }
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+            withJavadocJar()
+        }
     }
 }
 
