@@ -7,16 +7,11 @@ plugins {
 
 android {
     namespace 'com.w2sv.viewboundcontroller'
-    compileSdkVersion 33
-
+    compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        minSdk 14
-        versionCode 1
-        versionName '0.0.1'
-
+        minSdkVersion rootProject.ext.minSdkVersion
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         testInstrumentationRunnerArguments runnerBuilder: 'de.mannodermaus.junit5.AndroidJUnit5Builder'
-
         consumerProguardFiles 'consumer-rules.pro'
     }
 
@@ -52,7 +47,7 @@ afterEvaluate {
 
                 groupId = 'com.github.w2sv'
                 artifactId = 'viewboundcontroller'
-                version = android.defaultConfig.versionName
+                version = '0.0.1'
             }
         }
     }
@@ -63,7 +58,6 @@ dependencies {
 
     // ---------------
     // Android Tests
-    // ---------------
 
     androidTestImplementation 'androidx.test:runner:1.5.1'
     androidTestImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.1'
