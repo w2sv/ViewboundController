@@ -1,8 +1,3 @@
-# References:
-#   https://www.raywenderlich.com/10562143-continuous-integration-for-android
-#   https://dev.to/ychescale9/running-android-emulators-on-ci-from-bitrise-io-to-github-actions-3j76
-#   https://github.com/ReactiveCircus/android-emulator-runner
-
 name: Build
 on: [push, pull_request]
 
@@ -62,8 +57,8 @@ jobs:
           disable-animations: true
           script: ./gradlew connectedCheck
 
-  lint:
-    name: Lint
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -73,19 +68,5 @@ jobs:
         with:
           java-version: ${{ env.JAVA_VERSION }}
 
-      - name: Lint
-        run: ./gradlew lint
-
-  assemble:
-    name: Assemble
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup JDK
-        uses: actions/setup-java@v1
-        with:
-          java-version: ${{ env.JAVA_VERSION }}
-
-      - name: Assemble
-        run: ./gradlew assemble
+      - name: Build
+        run: ./gradlew build
